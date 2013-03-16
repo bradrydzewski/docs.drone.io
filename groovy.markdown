@@ -21,11 +21,10 @@ sudo update-java-alternatives -s java-1.7.0-openjdk-amd64
 ### Gradle
 
 Gradle is installed and available for your build. Most groovy projects
-will use the following standard commands in their build script:
+will use the following standard command in their build script:
 
 ```
-gradle assemble
-gradle check
+gradle build
 ```
 
 Maven and Ant are also installed and available for use in your build script.
