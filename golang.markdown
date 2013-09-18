@@ -7,7 +7,7 @@ icon: golang02
 
 The following Go versions are available to your build:
 
- * Go1 (stable)
+ * Go1 (version 1.1.2 linux/amd64)
 
 ## Go Path
 
@@ -54,6 +54,50 @@ You may use alternative unit test frameworks, such as [gocheck](http://labix.org
 go get launchpad.net/gocheck
 go test -gocheck.v
 ```
+<a name="cross-compile"></a>
+## Cross Compiling
+
+You may want to cross-compile your Go binaries to run on multiple platforms.
+This is possible but will require a bit of extra setup and might add 1-2 minutes
+to your build.
+
+First you can build / test your project as you normally would targeting
+the default linux/amd64 platform:
+
+```
+go build
+go test
+```
+
+Now we need to compile Go for other platforms. First, however, we need to
+remove AppEngine which has platform-specific code and will cause failures:
+
+```
+rm -rf /usr/local/go/src/pkg/appengine
+rm -rf /usr/local/go/src/pkg/appengine_internal
+```
+
+Now we copile Go for our target platforms:
+
+```
+pushd /usr/local/go/src
+GOOS=windows GOARCH=amd64 ./make.bash --no-clean 2> /dev/null 1> /dev/null
+GOOS=darwin  GOARCH=amd64 ./make.bash --no-clean 2> /dev/null 1> /dev/null
+popd
+```
+
+And finally we can run `go build` for multiple platforms:
+
+```
+GOOS=windows GOARCH=amd64 go build
+GOOS=darwin  GOARCH=amd64 go build
+```
+
+CAVEATS:
+
+* You cannot cross-compile if you use CGO
+* You cannot `go test` your cross-compiled binaries
+
 --------------------------------------------------------------------------------
 
 ## Examples
