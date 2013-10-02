@@ -77,7 +77,7 @@ rm -rf /usr/local/go/src/pkg/appengine
 rm -rf /usr/local/go/src/pkg/appengine_internal
 ```
 
-Now we copile Go for our target platforms:
+Now we compile Go for our target platforms:
 
 ```
 pushd /usr/local/go/src
