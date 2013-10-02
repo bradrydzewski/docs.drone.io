@@ -13,7 +13,7 @@ This following browsers and browser test utilities are available to your build:
 You may also install other popular testing frameworks using npm or apt-get:
 
 * `sudo npm -g install karma`
-* `sudo apt-get install [your favarotie testing tool]`
+* `sudo apt-get install [your favorite testing tool]`
 
 Before starting any browser tests you'll need to start an xwindows session.
 Include the following command in your build script:
