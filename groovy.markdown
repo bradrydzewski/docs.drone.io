@@ -20,12 +20,15 @@ sudo update-java-alternatives -s java-1.7.0-openjdk-amd64
 
 ### Gradle
 
-Gradle is installed and available for your build. Most groovy projects
-will use the following standard commands in their build script:
+Gradle 1.3 is installed and available for your build. Most groovy projects
+will use the following standard command in their build script:
 
 ```
-gradle assemble
-gradle check
+gradle build
 ```
+
+To support better using the [Gradle Wrapper](http://www.gradle.org/docs/current/userguide/gradle_wrapper.html), some versions of Gradle are pre-installed in the location expected by the wrapper.  The following Gradle versions are available for use from the wrapper:
+
+* Gradle 1.3
 
 Maven and Ant are also installed and available for use in your build script.
